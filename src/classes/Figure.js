@@ -4,10 +4,12 @@ import O_Logo from "../assets/circle.svg";
 export class Figure {
   logo;
   name = "FIGURE";
+  id;
 
   constructor(name, logo) {
     this.name = name;
     this.logo = logo;
+    this.id = Math.random();
   }
 }
 

@@ -1,5 +1,3 @@
-import { XFigure } from "./Figure";
-
 export class Cell {
   x;
   y;
