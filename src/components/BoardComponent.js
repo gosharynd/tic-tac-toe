@@ -20,11 +20,10 @@ export const BoardComponent = ({ board, setBoard }) => {
 
   const playerName = board.player.name;
   const isWin = board.checkWinning();
-  console.log("isWin: ", isWin);
 
   return (
     <div className="board">
-      {/* {isWin && <h3>{playerName} - WINS</h3>} */}
+      {isWin && <h3>{playerName} - WINS</h3>}
       {board.cells.map((row, indexY) => {
         return (
           <div className="row" key={indexY}>

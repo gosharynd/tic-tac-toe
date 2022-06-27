@@ -11,6 +11,10 @@ export class Figure {
     this.logo = logo;
     this.id = Math.random();
   }
+
+  getId() {
+    return this.id || null;
+  }
 }
 
 export const XFigure = new Figure("X_FIGURE", X_Logo);

@@ -8,6 +8,10 @@ export class Cell {
     this.y = y;
   }
 
+  getFigure() {
+    return this.figure || null;
+  }
+
   addFigure(newFigure) {
     this.figure = newFigure;
   }

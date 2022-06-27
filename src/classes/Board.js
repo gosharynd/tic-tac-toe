@@ -1,3 +1,4 @@
+import { checkWinning } from "../utils/checkWinning";
 import { Cell } from "./Cell";
 import { Player1, Player2 } from "./player";
 
@@ -49,31 +50,6 @@ export class Board {
   }
 
   checkWinning() {
-    return this.horizontalWin();
-  }
-
-  horizontalWin() {
-    let isWin = false;
-
-    if (isWin) return true;
-
-    for (let j = 0; j < this.cells.length; j++) {
-      const row = this.cells[j];
-      const firstFigure = row[0].figure;
-
-      if (firstFigure) {
-        const temp = row.reduce((acc, cell) => {
-          if (cell?.figure?.id === firstFigure?.id) {
-            return (acc += 1);
-          } else {
-            return acc;
-          }
-        }, 0);
-
-        isWin = temp === row.length;
-      }
-    }
-
-    return isWin;
+    return checkWinning(this.cells);
   }
 }
