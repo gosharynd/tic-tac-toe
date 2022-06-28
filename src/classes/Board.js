@@ -1,6 +1,6 @@
 import { checkWinning } from "../utils/checkWinning";
 import { Cell } from "./Cell";
-import { Player1, Player2 } from "./player";
+import { Player1, Player2 } from "./Player";
 
 const SIZE_X = 3;
 const SIZE_Y = 3;
