@@ -18,12 +18,8 @@ export const BoardComponent = ({ board, setBoard }) => {
     setSelectedCell(cell);
   };
 
-  const playerName = board.player.name;
-  const isWin = board.checkWinning();
-
   return (
     <div className="board">
-      {isWin && <h3>{playerName} - WINS</h3>}
       {board.cells.map((row, indexY) => {
         return (
           <div className="row" key={indexY}>

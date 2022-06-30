@@ -10,6 +10,7 @@ export class Board {
   sizeX = SIZE_X;
   sizeY = SIZE_Y;
   player = Player1;
+  winner;
 
   initCells() {
     for (let i = 0; i < this.sizeY; i++) {
@@ -24,9 +25,16 @@ export class Board {
   }
 
   makeTurn(target) {
-    if (!!target.figure) return;
+    if (!!target.figure || !!this.winner) return;
 
     target.addFigure(this.player.figure);
+
+    const isWin = this.checkWinning();
+
+    if (isWin) {
+      this.winner = this.player;
+      return;
+    }
 
     if (this.player === Player1) {
       this.player = Player2;
@@ -39,6 +47,7 @@ export class Board {
     const newBoard = new Board();
     newBoard.cells = this.cells;
     newBoard.player = this.player;
+    newBoard.winner = this.winner;
 
     return newBoard;
   }
@@ -51,5 +60,13 @@ export class Board {
 
   checkWinning() {
     return checkWinning(this.cells);
+  }
+
+  checkGameOver() {
+    return this.cells.every((row) => {
+      return row.every((cell) => {
+        if (cell.getFigure()) return true;
+      });
+    });
   }
 }

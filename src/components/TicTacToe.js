@@ -15,11 +15,15 @@ export const TicTacToe = () => {
     setBoard(newBoard);
   };
 
+  const playerName = board?.winner?.getName();
+  const isWin = board.checkWinning();
+  const showRestartButton = isWin || board.checkGameOver();
+
   return (
     <>
+      {isWin && <h3>{playerName} - WINS</h3>}
       <BoardComponent board={board} setBoard={setBoard} />
-
-      <button onClick={restart}>Restart</button>
+      {showRestartButton && <button onClick={restart}>Restart</button>}
     </>
   );
 };

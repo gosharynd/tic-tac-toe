@@ -8,6 +8,10 @@ export class Player {
     this.name = name;
     this.figure = figure;
   }
+
+  getName() {
+    return this.name;
+  }
 }
 
 export const Player1 = new Player("Player 1", XFigure);
